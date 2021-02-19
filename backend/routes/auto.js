@@ -13,10 +13,40 @@ router.post('/', async(req, res)=>{
         marca:req.body.marca,
         modelo:req.body.modelo,
         color:req.body.color,
-        precio:req.body.precio,
+        precio:req.body.precio
     })
     const resultado = await auto.save()
     res.status(200).send(resultado)
+})
+
+router.put('/', async (req, res)=>{
+    const auto = await Auto.findByIdAndUpdate(
+        req.body._id,
+        {
+            marca:req.body.marca,
+            modelo:req.body.modelo,
+            color:req.body.color,
+            precio:req.body.precio
+        },
+        {
+            new: true
+        }        
+    )
+    if(!auto){
+        res.status(400).send("No hay en la DB")
+    }
+    res.status(200).send(auto)
+})
+
+router.delete("/:_id", async(req, res)=>{
+
+    const auto = await Auto.findByIdAndDelete(
+        req.params._id
+    )
+    if(!auto){
+        res.status(400).send("No hay en la DB")
+    }
+    res.status(200).send("Auto eliminado")
 })
 
 module.exports = router
