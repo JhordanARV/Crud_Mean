@@ -8,6 +8,14 @@ router.get('/listaAutos', async(req, res)=>{
     res.send(autos)
 })
 
+router.get('/:_id', async(req, res)=>{
+    const auto = await Auto.findById(req.params._id)
+    if(!auto){
+        res.status(400).send({message:"No hay en la DB"})
+    }
+    res.status(200).send(auto)
+})
+
 router.post('/', async(req, res)=>{
     const auto = new Auto({
         marca:req.body.marca,
@@ -33,7 +41,7 @@ router.put('/', async (req, res)=>{
         }        
     )
     if(!auto){
-        res.status(400).send("No hay en la DB")
+        res.status(400).send({message:"No hay en la DB"})
     }
     res.status(200).send(auto)
 })
@@ -44,9 +52,9 @@ router.delete("/:_id", async(req, res)=>{
         req.params._id
     )
     if(!auto){
-        res.status(400).send("No hay en la DB")
+        res.status(400).send({message:"No hay en la DB"})
     }
-    res.status(200).send("Auto eliminado")
+    res.status(200).send({message:"Auto eliminado"})
 })
 
 module.exports = router

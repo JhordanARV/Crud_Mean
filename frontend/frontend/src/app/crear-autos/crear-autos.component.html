@@ -1,20 +1,20 @@
-<div class="container-sm">
-    <form class="row g-3">
+<div class="container" style="margin-top:50px">
+    <form class="row g-3" (ngSubmit)="registrar()" ngNativeValidate>
         <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Marca</label>
-          <input type="text" class="form-control" id="marca">
+          <label for="marca" class="form-label">Marca</label>
+          <input type="text" class="form-control" placeholder="Marca" [(ngModel)]='nuevoAuto.marca' [ngModelOptions]="{standalone: true}" required>
         </div>
         <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Modelo</label>
-          <input type="text" class="form-control" id="modelo">
+          <label for="modelo" class="form-label">Modelo</label>
+          <input type="number" class="form-control" id="modelo" placeholder="Modelo" [(ngModel)]='nuevoAuto.modelo' [ngModelOptions]="{standalone: true}" required>
         </div>
         <div class="col-12">
-          <label for="inputAddress" class="form-label">Color</label>
-          <input type="text" class="form-control" id="color" placeholder="Color auto">
+          <label for="color" class="form-label">Color</label>
+          <input type="text" class="form-control" id="color" placeholder="Color auto" [(ngModel)]='nuevoAuto.color' [ngModelOptions]="{standalone: true}" required>
         </div>
         <div class="col-12">
-          <label for="inputAddress2" class="form-label">Precio</label>
-          <input type="text" class="form-control" id="precio" placeholder="Precio">
+          <label for="precio" class="form-label">Precio</label>
+          <input type="number" class="form-control" id="precio" placeholder="Precio" [(ngModel)]='nuevoAuto.precio' [ngModelOptions]="{standalone: true}" required>
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-primary">Crear</button>

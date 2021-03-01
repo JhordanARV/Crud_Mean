@@ -18,11 +18,15 @@ export class AutosService {
   }
 
   listarAutos(){
-    return this.http.get<any>(this.urlGeneral+"/listaAutos/")
+    return this.http.get<any>(this.urlGeneral+"listaAutos/")
   }
 
   eliminarAuto(auto:any){
     const _id = auto._id
     return this.http.delete<any>(this.urlGeneral+_id)
+  }
+
+  listaAuto(id:string){
+    return this.http.get<any>(this.urlGeneral+id)
   }
 }

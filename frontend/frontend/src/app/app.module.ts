@@ -18,13 +18,17 @@ import { HttpClientModule } from '@angular/common/http'
 
 // Services
 
-import { AutosService } from './autos.service'
+import { AutosService } from './autos.service';
+import { ActualizarAutosComponent } from './actualizar-autos/actualizar-autos.component';
+import { InicioAutosComponent } from './inicio-autos/inicio-autos.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarAutosComponent,
-    CrearAutosComponent
+    CrearAutosComponent,
+    ActualizarAutosComponent,
+    InicioAutosComponent
   ],
   imports: [
     BrowserModule,
